@@ -133,13 +133,17 @@ class TestAcceptCoins(unittest.TestCase):
         self.assertEqual(self.VendingMachine.price, 0)
         self.assertEqual(self.VendingMachine.dispensed_product, None)
 
-    def test_machine_displays_PRICE_if_not_enough_money_is_inserted(self):
+    def test_machine_updates_display_for_current_amount_when_coins_are_accepted(self):
         self.VendingMachine.vending_machine_reset()
-        print("VendingMachine.display1->", self.VendingMachine.display)
         coin = quarter
         self.VendingMachine.accept_coins(coin)
         self.VendingMachine.accept_coins(coin)
-        print("VendingMachine.display2->", self.VendingMachine.display)
+        self.assertEqual(self.VendingMachine.display, '0.5')
+
+    def test_machine_displays_PRICE_if_not_enough_money_is_inserted(self):
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine.candy_button_press()
+        self.assertEqual(self.VendingMachine.display, 'PRICE:0.65')
 
     # Once we have all the values we are changing, create this test with all values.
     # def test_vending_machine_reset_restores_initialized_values(self):
