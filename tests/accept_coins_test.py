@@ -44,14 +44,16 @@ class TestAcceptCoins(unittest.TestCase):
         self.assertEqual(self.VendingMachine.price, 0.65)
 
     def test_check_transaction_for_correct_balance(self):
+        self.VendingMachine.vending_machine_reset()
         coin = quarter
         self.VendingMachine.accept_coins(coin)
+        self.assertEqual(self.VendingMachine.current_amount, 0.25)
         self.VendingMachine.cola_button_press()
+        self.assertEqual(self.VendingMachine.price, 1.00)
         self.VendingMachine._check_transaction()
         self.assertEqual(self.VendingMachine.balance, 0.75)
 
     def test_insert_coins_then_press_button_if_cola_transaction_amount_correct_dispense_cola(self):
-        print("test_if_cola_transaction_amount_correct_dispense_cola")
         self.VendingMachine.vending_machine_reset()
         coin = quarter
         self.VendingMachine.accept_coins(coin)
@@ -72,7 +74,6 @@ class TestAcceptCoins(unittest.TestCase):
         self.assertEqual(self.VendingMachine.dispensed_product, 'cola')
 
     def test_insert_coins_then_press_button_if_cola_transaction_amount_correct_dispense_chips(self):
-        print("test_if_cola_transaction_amount_correct_dispense_cola")
         self.VendingMachine.vending_machine_reset()
         coin1 = quarter
         coin2 = quarter
@@ -91,7 +92,6 @@ class TestAcceptCoins(unittest.TestCase):
         self.assertEqual(self.VendingMachine.dispensed_product, 'chips')
 
     def test_insert_coins_then_press_button_if_cola_transaction_amount_correct_dispense_candy(self):
-        print("test_if_cola_transaction_amount_correct_dispense_cola")
         self.VendingMachine.vending_machine_reset()
         coin1 = quarter
         coin2 = quarter
@@ -116,6 +116,22 @@ class TestAcceptCoins(unittest.TestCase):
         self.VendingMachine.accept_coins(coin3)
         self.VendingMachine.accept_coins(coin4)
         self.assertEqual(self.VendingMachine.dispensed_product, 'candy')
+
+    def test_after_complete_transaction_reset_transaction(self):
+        self.VendingMachine.vending_machine_reset()
+        coin = quarter
+        self.VendingMachine.accept_coins(coin)
+        self.VendingMachine.accept_coins(coin)
+        self.VendingMachine.accept_coins(coin)
+        self.VendingMachine.accept_coins(coin)
+        self.VendingMachine.cola_button_press()
+        self.assertEqual(self.VendingMachine.selected_product, 'cola')
+        self.assertEqual(self.VendingMachine.price, 1.00)
+        self.assertEqual(self.VendingMachine.dispensed_product, 'cola')
+        self.VendingMachine.accept_coins(coin)
+        self.assertEqual(self.VendingMachine.selected_product, None)
+        self.assertEqual(self.VendingMachine.price, 0)
+        self.assertEqual(self.VendingMachine.dispensed_product, None)
 
     # Once we have all the values we are changing, create this test with all values.
     # def test_vending_machine_reset_restores_initialized_values(self):

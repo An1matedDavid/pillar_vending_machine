@@ -22,6 +22,15 @@ class VendingMachine:
         self.dispensed_product = None
         self.cola_quantity = 5
 
+    def new_transaction(self):
+        self.current_amount = 0
+        self.coin_return = []
+        self.display = "INSERT COIN"
+        self.price = 0
+        self.balance = 0
+        self.selected_product = None
+        self.dispensed_product = None
+
     def accept_coins(self, coin):
         is_valid = self.is_valid_coin(coin)
         if is_valid is True:
@@ -46,28 +55,34 @@ class VendingMachine:
     def add_coin_value_to_current_amount(self, coin):
         # quarter
         if coin['weight'] == 5.6 and coin['size'] == 24.2:
+            self._check_for_new_transaction()
             self.current_amount += 0.25
             self._check_transaction()
         # dime
         elif coin['weight'] == 2.2 and coin['size'] == 17.9:
+            self._check_for_new_transaction()
             self.current_amount += 0.10
             self._check_transaction()
         # nickel
         elif coin['weight'] == 5 and coin['size'] == 21.2:
+            self._check_for_new_transaction()
             self.current_amount += 0.05
             self._check_transaction()
 
     def cola_button_press(self):
+        self._check_for_new_transaction()
         self.price = 1.00
         self.selected_product = "cola"
         self._check_transaction()
 
     def chips_button_press(self):
+        self._check_for_new_transaction()
         self.price = 0.50
         self.selected_product = "chips"
         self._check_transaction()
 
     def candy_button_press(self):
+        self._check_for_new_transaction()
         self.price = 0.65
         self.selected_product = "candy"
         self._check_transaction()
@@ -83,5 +98,10 @@ class VendingMachine:
 
             # if balance < 0, do "make change" things.
 
+    def _check_for_new_transaction(self):
+        if self.display == "THANK YOU":
+            self.new_transaction()
+
     def _dispense_product(self):
         self.dispensed_product = self.selected_product
+        self.display = "THANK YOU"
