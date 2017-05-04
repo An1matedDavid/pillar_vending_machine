@@ -57,46 +57,65 @@ class VendingMachine:
         if coin['weight'] == 5.6 and coin['size'] == 24.2:
             self._check_for_new_transaction()
             self.current_amount += 0.25
+            self._coin_display()
             self._check_transaction()
         # dime
         elif coin['weight'] == 2.2 and coin['size'] == 17.9:
             self._check_for_new_transaction()
             self.current_amount += 0.10
+            self._coin_display()
             self._check_transaction()
         # nickel
         elif coin['weight'] == 5 and coin['size'] == 21.2:
             self._check_for_new_transaction()
             self.current_amount += 0.05
+            self._coin_display()
             self._check_transaction()
+
+    def _coin_display(self):
+        # display current amount
+        current_amount = str(self.current_amount)
+        self.display = current_amount
 
     def cola_button_press(self):
         self._check_for_new_transaction()
         self.price = 1.00
         self.selected_product = "cola"
+        self._button_display()
         self._check_transaction()
 
     def chips_button_press(self):
         self._check_for_new_transaction()
         self.price = 0.50
         self.selected_product = "chips"
+        self._button_display()
         self._check_transaction()
 
     def candy_button_press(self):
         self._check_for_new_transaction()
         self.price = 0.65
         self.selected_product = "candy"
+        self._button_display()
         self._check_transaction()
+
+    def _button_display(self):
+        if self.price != 0:
+            self.balance = self.price - self.current_amount
+            # display price
+            if self.balance > 0:
+                price = "PRICE:"
+                price += str(self.price)
+                self.display = price
 
     def _check_transaction(self):
         if self.price != 0:
             self.balance = self.price - self.current_amount
-            # if balance > 0, do "need more money" things
-
             # if balance == 0, dispense and end transaction.
             if self.balance == 0:
                 self._dispense_product()
-
             # if balance < 0, do "make change" things.
+            if self.balance < 0:
+                self._dispense_product()
 
     def _check_for_new_transaction(self):
         if self.display == "THANK YOU":
