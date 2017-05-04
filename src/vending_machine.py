@@ -54,3 +54,13 @@ class VendingMachine:
 
     def candy_button_press(self):
         self.price = 0.65
+
+    def _check_transaction(self):
+        balance = self.price - self.current_amount
+        # if balance < price, do "need more money" things
+
+        # if balance == price, dispence and end transaction.
+
+        # if balacne > price, do "make change" things.
+
+        return balance

@@ -24,17 +24,15 @@ class TestAcceptCoins(unittest.TestCase):
         self.VendingMachine.accept_coins(coin1)
         self.assertEqual(self.VendingMachine.current_amount, 25)
         self.assertEqual(self.VendingMachine.coin_return, [])
-
         coin2 = penny
         self.VendingMachine.accept_coins(coin2)
         self.assertEqual(self.VendingMachine.current_amount, 25)
         self.assertEqual(self.VendingMachine.coin_return, [{'size': 19, 'weight': 2.5}])
-
         coin3 = dime
         self.VendingMachine.accept_coins(coin3)
         self.assertEqual(self.VendingMachine.current_amount, 35)
         self.assertEqual(self.VendingMachine.coin_return, [{'size': 19, 'weight': 2.5}])
-        self.VendingMachine.vending_machine_reset()
+        # self.VendingMachine.vending_machine_reset()
 
     def test_when_product_is_selected_price_is_set(self):
         self.VendingMachine.cola_button_press()
@@ -43,6 +41,9 @@ class TestAcceptCoins(unittest.TestCase):
         self.assertEqual(self.VendingMachine.price, 0.50)
         self.VendingMachine.candy_button_press()
         self.assertEqual(self.VendingMachine.price, 0.65)
+
+    def test_check_transaction_for_correct_balance(self):
+        balance = self.VendingMachine._check_transaction()
 
 if __name__ == '__main__':
     unittest.main()
