@@ -6,11 +6,13 @@ class VendingMachine:
     current_amount = 0
     coin_return = []
     display = "INSERT COIN"
+    price = 0
 
     def vending_machine_reset(self):
         self.current_amount = 0
         self.coin_return = []
         self.display = "INSERT COIN"
+        self.price = 0
 
     def accept_coins(self, coin):
         is_valid = self.is_valid_coin(coin)
@@ -43,3 +45,12 @@ class VendingMachine:
         # nickel
         elif coin['weight'] == 5 and coin['size'] == 21.2:
             self.current_amount += 5
+
+    def cola_button_press(self):
+        self.price = 1.00
+
+    def chips_button_press(self):
+        self.price = 0.50
+
+    def candy_button_press(self):
+        self.price = 0.65

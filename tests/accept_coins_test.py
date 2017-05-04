@@ -34,6 +34,15 @@ class TestAcceptCoins(unittest.TestCase):
         self.VendingMachine.accept_coins(coin3)
         self.assertEqual(self.VendingMachine.current_amount, 35)
         self.assertEqual(self.VendingMachine.coin_return, [{'size': 19, 'weight': 2.5}])
+        self.VendingMachine.vending_machine_reset()
+
+    def test_when_product_is_selected_price_is_set(self):
+        self.VendingMachine.cola_button_press()
+        self.assertEqual(self.VendingMachine.price, 1.00)
+        self.VendingMachine.chips_button_press()
+        self.assertEqual(self.VendingMachine.price, 0.50)
+        self.VendingMachine.candy_button_press()
+        self.assertEqual(self.VendingMachine.price, 0.65)
 
 if __name__ == '__main__':
     unittest.main()
