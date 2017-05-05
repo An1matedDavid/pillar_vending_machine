@@ -143,7 +143,6 @@ class VendingMachine:
         nickels = 0
         self.change_due = abs(balance)
         # change_due = round(change_due, 2)
-        print("change_due start (0.65)->", self.change_due)
         # quarters
         while self.change_due > 0:
             self.change_due -= 0.25
@@ -153,7 +152,6 @@ class VendingMachine:
             self.change_due += 0.25
             # change_due = round(change_due, 2)
             quarters -= 1
-        print("change_due qtrs (.15)->", self.change_due)
         # dimes
         while self.change_due > 0:
             self.change_due -= 0.10
@@ -163,7 +161,6 @@ class VendingMachine:
             self.change_due += 0.10
             # change_due = round(change_due, 2)
             dimes -= 1
-        print("change_due dimes (.05)->", self.change_due)
         # nickels
         while self.change_due > 0:
             self.change_due -= 0.05
@@ -174,6 +171,3 @@ class VendingMachine:
             self.change_due = round(self.change_due, 2)
             nickels -= 1
         self.change_due = round(self.change_due, 2)
-        print("change_due (should be zero)->", self.change_due)
-
-        self.coin_return = self.change_due

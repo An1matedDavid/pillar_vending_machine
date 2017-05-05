@@ -148,19 +148,21 @@ class TestAcceptCoins(unittest.TestCase):
     def test_make_change_correctly_reaches_zero_change_due(self):
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.65)
-        print("change_due1", self.VendingMachine.change_due)
+        self.assertEqual(self.VendingMachine.change_due, 0)
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.75)
-        print("change_due2", self.VendingMachine.change_due)
+        self.assertEqual(self.VendingMachine.change_due, 0)
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.05)
-        print("change_due3", self.VendingMachine.change_due)
+        self.assertEqual(self.VendingMachine.change_due, 0)
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.10)
-        print("change_due4", self.VendingMachine.change_due)
+        self.assertEqual(self.VendingMachine.change_due, 0)
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.1005)
-        print("change_due5", self.VendingMachine.change_due)
+        self.assertEqual(self.VendingMachine.change_due, 0)
+
+    # def test_make_change_sums_correct_number_of_each_coin_in_change(self):
 
     # def test_make_change_adds_correct_coins_to_coin_return(self):
 
