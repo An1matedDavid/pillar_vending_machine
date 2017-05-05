@@ -1,16 +1,27 @@
 __author__ = 'MrJ'
+import math
+quarter = {'weight': 5.6, 'size': 24.2}
+dime = {'weight': 2.2, 'size': 17.9}
+nickel = {'weight': 5, 'size': 21.2}
+penny = {'weight': 2.5, 'size': 19}
 
 
 class VendingMachine:
 
     current_amount = 0
     coin_return = []
+    change_due = 0
     display = "INSERT COIN"
     price = 0
     balance = 0
     selected_product = None
     dispensed_product = None
     cola_quantity = 5
+    chips_quantity = 5
+    candy_quantity = 5
+    quarter_quantity = 8
+    dime_quantity = 8
+    nickel_quantity = 8
 
     def vending_machine_reset(self):
         self.current_amount = 0
@@ -116,6 +127,7 @@ class VendingMachine:
             # if balance < 0, do "make change" things.
             if self.balance < 0:
                 self._dispense_product()
+                self._make_change(self.balance)
 
     def _check_for_new_transaction(self):
         if self.display == "THANK YOU":
@@ -124,3 +136,44 @@ class VendingMachine:
     def _dispense_product(self):
         self.dispensed_product = self.selected_product
         self.display = "THANK YOU"
+
+    def _make_change(self, balance):
+        quarters = 0
+        dimes = 0
+        nickels = 0
+        self.change_due = abs(balance)
+        # change_due = round(change_due, 2)
+        print("change_due start (0.65)->", self.change_due)
+        # quarters
+        while self.change_due > 0:
+            self.change_due -= 0.25
+            # change_due = round(change_due, 2)
+            quarters += 1
+        if round(self.change_due, 2) < 0:
+            self.change_due += 0.25
+            # change_due = round(change_due, 2)
+            quarters -= 1
+        print("change_due qtrs (.15)->", self.change_due)
+        # dimes
+        while self.change_due > 0:
+            self.change_due -= 0.10
+            # change_due = round(change_due, 2)
+            dimes += 1
+        if round(self.change_due, 2) < 0:
+            self.change_due += 0.10
+            # change_due = round(change_due, 2)
+            dimes -= 1
+        print("change_due dimes (.05)->", self.change_due)
+        # nickels
+        while self.change_due > 0:
+            self.change_due -= 0.05
+            # change_due = round(change_due, 2)
+            nickels += 1
+        if round(self.change_due, 2) < 0:
+            self.change_due += 0.05
+            self.change_due = round(self.change_due, 2)
+            nickels -= 1
+        self.change_due = round(self.change_due, 2)
+        print("change_due (should be zero)->", self.change_due)
+
+        self.coin_return = self.change_due

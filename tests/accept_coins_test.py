@@ -145,6 +145,25 @@ class TestAcceptCoins(unittest.TestCase):
         self.VendingMachine.candy_button_press()
         self.assertEqual(self.VendingMachine.display, 'PRICE:0.65')
 
+    def test_make_change_correctly_reaches_zero_change_due(self):
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.65)
+        print("change_due1", self.VendingMachine.change_due)
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.75)
+        print("change_due2", self.VendingMachine.change_due)
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.05)
+        print("change_due3", self.VendingMachine.change_due)
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.10)
+        print("change_due4", self.VendingMachine.change_due)
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.1005)
+        print("change_due5", self.VendingMachine.change_due)
+
+    # def test_make_change_adds_correct_coins_to_coin_return(self):
+
     # Once we have all the values we are changing, create this test with all values.
     # def test_vending_machine_reset_restores_initialized_values(self):
     #     coin = quarter
