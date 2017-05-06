@@ -32,6 +32,11 @@ class VendingMachine:
         self.selected_product = None
         self.dispensed_product = None
         self.cola_quantity = 5
+        self.chips_quantity = 5
+        self.candy_quantity = 5
+        self.quarter_quantity = 8
+        self.dime_quantity = 8
+        self.nickel_quantity = 8
 
     def new_transaction(self):
         self.current_amount = 0
@@ -171,3 +176,12 @@ class VendingMachine:
             self.change_due = round(self.change_due, 2)
             nickels -= 1
         self.change_due = round(self.change_due, 2)
+
+        for quarter_index in range(quarters):
+            self.coin_return.append(quarter)
+
+        for dime_index in range(dimes):
+            self.coin_return.append(dime)
+
+        for nickel_index in range(nickels):
+            self.coin_return.append(nickel)

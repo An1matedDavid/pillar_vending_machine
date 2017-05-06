@@ -162,7 +162,29 @@ class TestAcceptCoins(unittest.TestCase):
         self.VendingMachine._make_change(-0.1005)
         self.assertEqual(self.VendingMachine.change_due, 0)
 
-    # def test_make_change_sums_correct_number_of_each_coin_in_change(self):
+    def test_make_change_sums_correct_number_of_each_coin_in_change(self):
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.65)
+        # quarter, quarter, dime, nickle
+        self.assertEqual(self.VendingMachine.coin_return, [{'size': 24.2, 'weight': 5.6}, {'size': 24.2, 'weight': 5.6}, {'size': 17.9, 'weight': 2.2}, {'size': 21.2, 'weight': 5}])
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.75)
+        # quarter, quarter, quarter
+        self.assertEqual(self.VendingMachine.coin_return, [{'size': 24.2, 'weight': 5.6}, {'size': 24.2, 'weight': 5.6}, {'size': 24.2, 'weight': 5.6}])
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.05)
+        # nickle
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5, 'size': 21.2}])
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-0.10)
+        # dime
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 2.2, 'size': 17.9}])
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine._make_change(-25000)
+        # 100,000 quarters
+        self.assertEqual(len(self.VendingMachine.coin_return), 100000)
+
+        # self.assertEqual(self.VendingMachine.change_due, 0)
 
     # def test_make_change_adds_correct_coins_to_coin_return(self):
 
