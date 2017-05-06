@@ -94,25 +94,34 @@ class VendingMachine:
         self.display = current_amount
 
     def cola_button_press(self):
-        self._check_for_new_transaction()
-        self.price = 1.00
-        self.selected_product = "cola"
-        self._button_display()
-        self._check_transaction()
+        if self.cola_quantity > 0:
+            self._check_for_new_transaction()
+            self.price = 1.00
+            self.selected_product = "cola"
+            self._button_display()
+            self._check_transaction()
+        else:
+            self.display = "SOLD OUT"
 
     def chips_button_press(self):
-        self._check_for_new_transaction()
-        self.price = 0.50
-        self.selected_product = "chips"
-        self._button_display()
-        self._check_transaction()
+        if self.chips_quantity > 0:
+            self._check_for_new_transaction()
+            self.price = 0.50
+            self.selected_product = "chips"
+            self._button_display()
+            self._check_transaction()
+        else:
+            self.display = "SOLD OUT"
 
     def candy_button_press(self):
-        self._check_for_new_transaction()
-        self.price = 0.65
-        self.selected_product = "candy"
-        self._button_display()
-        self._check_transaction()
+        if self.candy_quantity > 0:
+            self._check_for_new_transaction()
+            self.price = 0.65
+            self.selected_product = "candy"
+            self._button_display()
+            self._check_transaction()
+        else:
+            self.display = "SOLD OUT"
 
     def _button_display(self):
         if self.price != 0:
@@ -141,6 +150,12 @@ class VendingMachine:
     def _dispense_product(self):
         self.dispensed_product = self.selected_product
         self.display = "THANK YOU"
+        if self.selected_product == "cola":
+            self.cola_quantity -= 1
+        elif self.selected_product == "chips":
+            self.chips_quantity -= 1
+        elif self.selected_product == "candy":
+            self.candy_quantity -= 1
 
     def _make_change(self, balance):
         quarters = 0

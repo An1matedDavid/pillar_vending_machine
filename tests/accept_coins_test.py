@@ -182,11 +182,18 @@ class TestAcceptCoins(unittest.TestCase):
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-25000)
         # 100,000 quarters
-        self.assertEqual(len(self.VendingMachine.coin_return), 100000)
+        # self.assertEqual(len(self.VendingMachine.coin_return), 100000)
 
-        # self.assertEqual(self.VendingMachine.change_due, 0)
-
-    # def test_make_change_adds_correct_coins_to_coin_return(self):
+    def test_when_the_item_selected_by_the_customer_is_out_of_stock_the_machine_displays_SOLD_OUT(self):
+        self.VendingMachine.vending_machine_reset()
+        for sale_index in range(6):
+            coin = quarter
+            self.VendingMachine.accept_coins(coin)
+            self.VendingMachine.accept_coins(coin)
+            self.VendingMachine.accept_coins(coin)
+            self.VendingMachine.accept_coins(coin)
+            self.VendingMachine.cola_button_press()
+        self.assertEqual(self.VendingMachine.display, "SOLD OUT")
 
     # Once we have all the values we are changing, create this test with all values.
     # def test_vending_machine_reset_restores_initialized_values(self):
