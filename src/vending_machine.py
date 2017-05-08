@@ -94,30 +94,24 @@ class VendingMachine:
         return valid_coin
 
     def add_coin_value_to_current_amount(self, coin):
+        self._check_for_new_transaction()
         # quarter
         if coin['weight'] == 5.6 and coin['size'] == 24.2:
-            self._check_for_new_transaction()
             self.current_amount += 0.25
             self.quarter_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(quarter)
-            self._coin_display()
-            self._check_transaction()
         # dime
         elif coin['weight'] == 2.2 and coin['size'] == 17.9:
-            self._check_for_new_transaction()
             self.current_amount += 0.10
             self.dime_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(dime)
-            self._coin_display()
-            self._check_transaction()
         # nickel
         elif coin['weight'] == 5 and coin['size'] == 21.2:
-            self._check_for_new_transaction()
             self.current_amount += 0.05
             self.nickel_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(nickel)
-            self._coin_display()
-            self._check_transaction()
+        self._coin_display()
+        self._check_transaction()
 
     def _coin_display(self):
         self.check_change_making_ability()
