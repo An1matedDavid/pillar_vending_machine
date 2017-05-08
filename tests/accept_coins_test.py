@@ -197,7 +197,6 @@ class TestAcceptCoins(unittest.TestCase):
 
     def test_vending_machine_correctly_checks_change_making_ability(self):
         self.VendingMachine.vending_machine_reset()
-        self.VendingMachine.print_and_break_on_this_test = True
         self.VendingMachine.dime_quantity = 1
         self.VendingMachine.nickel_quantity = 1
         self.assertEqual(self.VendingMachine.display, "INSERT COIN")
@@ -211,6 +210,30 @@ class TestAcceptCoins(unittest.TestCase):
         self.assertEqual(self.VendingMachine.dime_quantity, 0)
         self.VendingMachine.new_transaction()
         self.assertEqual(self.VendingMachine.display, "EXACT CHANGE ONLY")
+
+    def test_return_coins(self):
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine.print_and_break_on_this_test = True
+        coin1 = quarter
+        self.VendingMachine.accept_coins(coin1)
+        self.VendingMachine.accept_coins(coin1)
+        self.VendingMachine.return_coins()
+        self.assertEqual(self.VendingMachine.display, "INSERT COIN")
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5.6, 'size': 24.2}, {'weight': 5.6, 'size': 24.2}])
+        self.VendingMachine.new_transaction()
+        coin2 = dime
+        self.VendingMachine.accept_coins(coin2)
+        self.VendingMachine.return_coins()
+        self.assertEqual(self.VendingMachine.display, "INSERT COIN")
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 2.2, 'size': 17.9}])
+        self.VendingMachine.new_transaction()
+        coin3 = nickel
+        self.VendingMachine.accept_coins(coin3)
+        self.VendingMachine.accept_coins(coin3)
+        self.VendingMachine.accept_coins(coin3)
+        self.VendingMachine.return_coins()
+        self.assertEqual(self.VendingMachine.display, "INSERT COIN")
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5, 'size': 21.2}, {'weight': 5, 'size': 21.2}, {'weight': 5, 'size': 21.2}])
 
     # Once we have all the values we are changing, create this test with all values.
     # def test_vending_machine_reset_restores_initialized_values(self):

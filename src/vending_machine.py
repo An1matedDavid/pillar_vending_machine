@@ -10,6 +10,7 @@ class VendingMachine:
 
     current_amount = 0
     coin_return = []
+    coins_customer_has_inserted_during_this_transaction = []
     change_due = 0
     display = "INSERT COIN"
     price = 0
@@ -41,6 +42,7 @@ class VendingMachine:
         self.dime_quantity = 8
         self.nickel_quantity = 8
         self.print_and_break_on_this_test = False
+        self.coins_customer_has_inserted_during_this_transaction = []
 
     def new_transaction(self):
         self.current_amount = 0
@@ -52,6 +54,7 @@ class VendingMachine:
         self.balance = 0
         self.selected_product = None
         self.dispensed_product = None
+        self.coins_customer_has_inserted_during_this_transaction = []
 
     def check_change_making_ability(self):
         """
@@ -96,6 +99,7 @@ class VendingMachine:
             self._check_for_new_transaction()
             self.current_amount += 0.25
             self.quarter_quantity += 1
+            self.coins_customer_has_inserted_during_this_transaction.append(quarter)
             self._coin_display()
             self._check_transaction()
         # dime
@@ -103,6 +107,7 @@ class VendingMachine:
             self._check_for_new_transaction()
             self.current_amount += 0.10
             self.dime_quantity += 1
+            self.coins_customer_has_inserted_during_this_transaction.append(dime)
             self._coin_display()
             self._check_transaction()
         # nickel
@@ -110,6 +115,7 @@ class VendingMachine:
             self._check_for_new_transaction()
             self.current_amount += 0.05
             self.nickel_quantity += 1
+            self.coins_customer_has_inserted_during_this_transaction.append(nickel)
             self._coin_display()
             self._check_transaction()
 
@@ -245,3 +251,20 @@ class VendingMachine:
             self.coin_return.append(dime)
         for nickel_index in range(returning_nickels):
             self.coin_return.append(nickel)
+
+    def return_coins(self):
+        self.coin_return.extend(self.coins_customer_has_inserted_during_this_transaction)
+        for coin in self.coins_customer_has_inserted_during_this_transaction:
+            # quarter
+            if coin['weight'] == 5.6 and coin['size'] == 24.2:
+                self.quarter_quantity -= 1
+            # dime
+            elif coin['weight'] == 2.2 and coin['size'] == 17.9:
+                self.dime_quantity -= 1
+            # nickel
+            elif coin['weight'] == 5 and coin['size'] == 21.2:
+                self.nickel_quantity -= 1
+        coin_return_buffer = self.coin_return
+        self.new_transaction()
+        self.coin_return = coin_return_buffer
+        self.coins_customer_has_inserted_during_this_transaction = []
