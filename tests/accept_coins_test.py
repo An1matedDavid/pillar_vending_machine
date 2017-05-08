@@ -195,6 +195,23 @@ class TestAcceptCoins(unittest.TestCase):
             self.VendingMachine.cola_button_press()
         self.assertEqual(self.VendingMachine.display, "SOLD OUT")
 
+    def test_vending_machine_correctly_checks_change_making_ability(self):
+        self.VendingMachine.vending_machine_reset()
+        self.VendingMachine.print_and_break_on_this_test = True
+        self.VendingMachine.dime_quantity = 1
+        self.VendingMachine.nickel_quantity = 1
+        self.assertEqual(self.VendingMachine.display, "INSERT COIN")
+        # candy = 0.65
+        self.VendingMachine.candy_button_press()
+        coin = quarter
+        self.VendingMachine.accept_coins(coin)
+        self.VendingMachine.accept_coins(coin)
+        self.VendingMachine.accept_coins(coin)
+        self.assertEqual(self.VendingMachine.display, "THANK YOU")
+        self.assertEqual(self.VendingMachine.dime_quantity, 0)
+        self.VendingMachine.new_transaction()
+        self.assertEqual(self.VendingMachine.display, "EXACT CHANGE ONLY")
+
     # Once we have all the values we are changing, create this test with all values.
     # def test_vending_machine_reset_restores_initialized_values(self):
     #     coin = quarter
