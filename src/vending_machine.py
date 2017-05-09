@@ -119,36 +119,42 @@ class VendingMachine:
         current_amount = str(self.current_amount)
         self.display = current_amount
 
+    def button_press(self, button):
+        """
+        This is an abstracted "button press" handler.
+        In a real life system there would be be an implementation detail to handle.
+        """
+        self._check_for_new_transaction()
+        self.check_change_making_ability()
+
+        if button == 'cola':
+            self.cola_button_press()
+        elif button == "chips":
+            self.chips_button_press()
+        elif button == "candy":
+            self.candy_button_press()
+
+        self._button_display()
+        self._check_transaction()
+
     def cola_button_press(self):
         if self.cola_quantity > 0:
-            self._check_for_new_transaction()
-            self.check_change_making_ability()
             self.price = 1.00
             self.selected_product = "cola"
-            self._button_display()
-            self._check_transaction()
         else:
             self.display = "SOLD OUT"
 
     def chips_button_press(self):
         if self.chips_quantity > 0:
-            self._check_for_new_transaction()
-            self.check_change_making_ability()
             self.price = 0.50
             self.selected_product = "chips"
-            self._button_display()
-            self._check_transaction()
         else:
             self.display = "SOLD OUT"
 
     def candy_button_press(self):
         if self.candy_quantity > 0:
-            self._check_for_new_transaction()
-            self.check_change_making_ability()
             self.price = 0.65
             self.selected_product = "candy"
-            self._button_display()
-            self._check_transaction()
         else:
             self.display = "SOLD OUT"
 
