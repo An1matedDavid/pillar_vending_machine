@@ -1,3 +1,16 @@
+run test suite: tests/testing_suite
+source code: src/vending_machine
+
+Notes:
+(1)Button presses in a real system may need to be reworked in accordance with implementation detail needs.
+(2)_make_change() may not be optimal algorithm depending on business need.
+   Currently uses biggest coins first to deploy minimum number of coins.
+(3)"Coins" are dictionary object when entered into the machine, but the internals of the machine
+   abstract that away in favor of numeric values of coins.
+(4)Coin objects are actually single a variable for each coin type. They are thought of as separate
+   coins for the purpose of this exercise. This works because the values of a coin are constant and
+   only used for type-checking purposes.
+
 Vending Machine Kata
 ====================
 
