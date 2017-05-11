@@ -74,14 +74,14 @@ class VendingMachine:
 
     def accept_coins(self, coin):
         coin_type = self.is_valid_coin(coin)
-        if coin_type is not "na":
-            self.add_coin_value_to_current_amount(coin)
+        if coin_type:
+            self.add_coin_value_to_current_amount(coin_type)
         else:
             self.coin_return.append(coin)
         return coin
 
     def is_valid_coin(self, coin):
-        coin_type = "na"
+        coin_type = None
         # quarter
         if coin['weight'] == quarter['weight'] and coin['size'] == quarter['size']:
             coin_type = quarter
@@ -93,20 +93,20 @@ class VendingMachine:
             coin_type = nickel
         return coin_type
 
-    def add_coin_value_to_current_amount(self, coin):
+    def add_coin_value_to_current_amount(self, coin_type):
         self._check_for_new_transaction()
         # quarter
-        if self.is_valid_coin(coin) == quarter:
+        if coin_type == quarter:
             self.current_amount += 0.25
             self.quarter_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(quarter)
         # dime
-        elif self.is_valid_coin(coin) == dime:
+        elif coin_type == dime:
             self.current_amount += 0.10
             self.dime_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(dime)
         # nickel
-        elif self.is_valid_coin(coin) == nickel:
+        elif coin_type == nickel:
             self.current_amount += 0.05
             self.nickel_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(nickel)
