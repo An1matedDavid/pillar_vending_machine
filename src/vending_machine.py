@@ -1,9 +1,11 @@
 __author__ = 'MrJ'
-import math
-quarter = {'weight': 5.6, 'size': 24.2}
-dime = {'weight': 2.2, 'size': 17.9}
-nickel = {'weight': 5, 'size': 21.2}
-penny = {'weight': 2.5, 'size': 19}
+
+# size = mm diameter
+# weight = g
+quarter = {'weight': 5.6, 'size': 24.2, 'value': 0.25}
+dime = {'weight': 2.2, 'size': 17.9, 'value': 0.10}
+nickel = {'weight': 5, 'size': 21.2, 'value': 0.05}
+penny = {'weight': 2.5, 'size': 19, 'value': 0.01}
 
 
 class VendingMachine:
@@ -97,17 +99,17 @@ class VendingMachine:
         self._check_for_new_transaction()
         # quarter
         if coin_type == quarter:
-            self.current_amount += 0.25
+            self.current_amount += coin_type['value']
             self.quarter_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(quarter)
         # dime
         elif coin_type == dime:
-            self.current_amount += 0.10
+            self.current_amount += coin_type['value']
             self.dime_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(dime)
         # nickel
         elif coin_type == nickel:
-            self.current_amount += 0.05
+            self.current_amount += coin_type['value']
             self.nickel_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(nickel)
         self._coin_display()

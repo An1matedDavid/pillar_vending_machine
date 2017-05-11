@@ -4,10 +4,10 @@ from src.vending_machine import VendingMachine
 
 # size = mm diameter
 # weight = g
-quarter = {'weight': 5.6, 'size': 24.2}
-dime = {'weight': 2.2, 'size': 17.9}
-nickel = {'weight': 5, 'size': 21.2}
-penny = {'weight': 2.5, 'size': 19}
+quarter = {'weight': 5.6, 'size': 24.2, 'value': 0.25}
+dime = {'weight': 2.2, 'size': 17.9, 'value': 0.10}
+nickel = {'weight': 5, 'size': 21.2, 'value': 0.05}
+penny = {'weight': 2.5, 'size': 19, 'value': 0.01}
 
 
 class TestSuite(unittest.TestCase):
@@ -33,7 +33,7 @@ class TestSuite(unittest.TestCase):
         coin2 = penny
         self.VendingMachine.accept_coins(coin2)
         self.assertEqual(self.VendingMachine.current_amount, 0.35)
-        self.assertEqual(self.VendingMachine.coin_return, [{'size': 19, 'weight': 2.5}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'size': 19, 'weight': 2.5, 'value': 0.01}])
 
     def test_when_product_is_selected_price_is_set(self):
         self.VendingMachine.button_press("cola")
@@ -166,19 +166,19 @@ class TestSuite(unittest.TestCase):
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.65)
         # quarter, quarter, dime, nickle
-        self.assertEqual(self.VendingMachine.coin_return, [{'size': 24.2, 'weight': 5.6}, {'size': 24.2, 'weight': 5.6}, {'size': 17.9, 'weight': 2.2}, {'size': 21.2, 'weight': 5}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'size': 24.2, 'weight': 5.6, 'value': 0.25}, {'size': 24.2, 'weight': 5.6, 'value': 0.25}, {'size': 17.9, 'weight': 2.2, 'value': 0.10}, {'size': 21.2, 'weight': 5, 'value': 0.05}])
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.75)
         # quarter, quarter, quarter
-        self.assertEqual(self.VendingMachine.coin_return, [{'size': 24.2, 'weight': 5.6}, {'size': 24.2, 'weight': 5.6}, {'size': 24.2, 'weight': 5.6}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'size': 24.2, 'weight': 5.6, 'value': 0.25}, {'size': 24.2, 'weight': 5.6, 'value': 0.25}, {'size': 24.2, 'weight': 5.6, 'value': 0.25}])
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.05)
         # nickle
-        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5, 'size': 21.2}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5, 'size': 21.2, 'value': 0.05}])
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-0.10)
         # dime
-        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 2.2, 'size': 17.9}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 2.2, 'size': 17.9, 'value': 0.10}])
         self.VendingMachine.vending_machine_reset()
         self.VendingMachine._make_change(-25000)
         # 100,000 quarters
@@ -219,13 +219,13 @@ class TestSuite(unittest.TestCase):
         self.VendingMachine.accept_coins(coin1)
         self.VendingMachine.return_coins()
         self.assertEqual(self.VendingMachine.display, "INSERT COIN")
-        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5.6, 'size': 24.2}, {'weight': 5.6, 'size': 24.2}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5.6, 'size': 24.2, 'value': 0.25}, {'weight': 5.6, 'size': 24.2, 'value': 0.25}])
         self.VendingMachine.new_transaction()
         coin2 = dime
         self.VendingMachine.accept_coins(coin2)
         self.VendingMachine.return_coins()
         self.assertEqual(self.VendingMachine.display, "INSERT COIN")
-        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 2.2, 'size': 17.9}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 2.2, 'size': 17.9, 'value': 0.10}])
         self.VendingMachine.new_transaction()
         coin3 = nickel
         self.VendingMachine.accept_coins(coin3)
@@ -233,7 +233,7 @@ class TestSuite(unittest.TestCase):
         self.VendingMachine.accept_coins(coin3)
         self.VendingMachine.return_coins()
         self.assertEqual(self.VendingMachine.display, "INSERT COIN")
-        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5, 'size': 21.2}, {'weight': 5, 'size': 21.2}, {'weight': 5, 'size': 21.2}])
+        self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5, 'size': 21.2, 'value': 0.05}, {'weight': 5, 'size': 21.2, 'value': 0.05}, {'weight': 5, 'size': 21.2, 'value': 0.05}])
 
     # Once we have all the values we are changing, create this test with all values.
     # def test_vending_machine_reset_restores_initialized_values(self):
