@@ -235,10 +235,6 @@ class TestSuite(unittest.TestCase):
         self.assertEqual(self.VendingMachine.display, "INSERT COIN")
         self.assertEqual(self.VendingMachine.coin_return, [{'weight': 5, 'size': 21.2, 'value': 0.05}, {'weight': 5, 'size': 21.2, 'value': 0.05}, {'weight': 5, 'size': 21.2, 'value': 0.05}])
 
-    # Once we have all the values we are changing, create this test with all values.
-    # def test_vending_machine_reset_restores_initialized_values(self):
-    #     coin = quarter
-    #     self.VendingMachine.accept_coins(coin)
 
 if __name__ == '__main__':
     unittest.main()

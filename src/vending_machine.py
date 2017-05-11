@@ -1,4 +1,4 @@
-__author__ = 'MrJ'
+__author__ = 'David Carroll'
 
 # size = mm diameter
 # weight = g
