@@ -73,40 +73,40 @@ class VendingMachine:
         return need_exact_change
 
     def accept_coins(self, coin):
-        is_valid = self.is_valid_coin(coin)
-        if is_valid is True:
+        coin_type = self.is_valid_coin(coin)
+        if coin_type is not "na":
             self.add_coin_value_to_current_amount(coin)
         else:
             self.coin_return.append(coin)
         return coin
 
     def is_valid_coin(self, coin):
-        valid_coin = False
+        coin_type = "na"
         # quarter
-        if coin['weight'] == 5.6 and coin['size'] == 24.2:
-            valid_coin = True
+        if coin['weight'] == quarter['weight'] and coin['size'] == quarter['size']:
+            coin_type = quarter
         # dime
-        elif coin['weight'] == 2.2 and coin['size'] == 17.9:
-            valid_coin = True
+        elif coin['weight'] == dime['weight'] and coin['size'] == dime['size']:
+            coin_type = dime
         # nickel
-        elif coin['weight'] == 5 and coin['size'] == 21.2:
-            valid_coin = True
-        return valid_coin
+        elif coin['weight'] == nickel['weight'] and coin['size'] == nickel['size']:
+            coin_type = nickel
+        return coin_type
 
     def add_coin_value_to_current_amount(self, coin):
         self._check_for_new_transaction()
         # quarter
-        if coin['weight'] == 5.6 and coin['size'] == 24.2:
+        if self.is_valid_coin(coin) == quarter:
             self.current_amount += 0.25
             self.quarter_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(quarter)
         # dime
-        elif coin['weight'] == 2.2 and coin['size'] == 17.9:
+        elif self.is_valid_coin(coin) == dime:
             self.current_amount += 0.10
             self.dime_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(dime)
         # nickel
-        elif coin['weight'] == 5 and coin['size'] == 21.2:
+        elif self.is_valid_coin(coin) == nickel:
             self.current_amount += 0.05
             self.nickel_quantity += 1
             self.coins_customer_has_inserted_during_this_transaction.append(nickel)

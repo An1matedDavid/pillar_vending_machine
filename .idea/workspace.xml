@@ -16,6 +16,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/kata-vending-machine-master$Unittest_TestAcceptCoins_test_machine_displays_PRICE_if_not_enough_money_is_inserted.coverage" NAME="Unittest TestAcceptCoins.test_machine_displays_PRICE_if_not_enough_money_is_inserted Coverage Results" MODIFIED="1493929582709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/kata-vending-machine-master$Unittests_in_TestAcceptCoins.coverage" NAME="Unittests in TestAcceptCoins Coverage Results" MODIFIED="1493930772434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
+    <SUITE FILE_PATH="coverage/kata-vending-machine-master$Unittests_in_testing_suite__1_.coverage" NAME="Unittests in testing_suite (1) Coverage Results" MODIFIED="1494508133404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/kata-vending-machine-master$Unittests_in_sold_out_tests.coverage" NAME="Unittests in sold_out_tests Coverage Results" MODIFIED="1494194847095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/kata-vending-machine-master$Unittests_in_TestAcceptCoins__1_.coverage" NAME="Unittests in TestAcceptCoins (1) Coverage Results" MODIFIED="1494035341562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
     <SUITE FILE_PATH="coverage/kata-vending-machine-master$Unittests_in_TestAcceptCoins__2_.coverage" NAME="Unittests in TestAcceptCoins (2) Coverage Results" MODIFIED="1494035347414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/tests" />
@@ -44,11 +45,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="testing_suite.py" pinned="false" current-in-tab="false">
+          <file leaf-file-name="testing_suite.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tests/testing_suite.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-14.724138">
-                  <caret line="225" column="42" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="42" />
+                <state vertical-scroll-proportion="0.3323486">
+                  <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
                   <folding>
                     <element signature="e#29#44#0" expanded="true" />
                   </folding>
@@ -56,11 +57,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/README.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3935185">
-                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+                <state vertical-scroll-proportion="-11.137931">
+                  <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -86,8 +87,8 @@
           <file leaf-file-name="vending_machine.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/vending_machine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="4.8966026">
-                  <caret line="195" column="16" selection-start-line="195" selection-start-column="8" selection-end-line="195" selection-end-column="20" />
+                <state vertical-scroll-proportion="-0.9039882">
+                  <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -113,8 +114,8 @@
         <option value="$PROJECT_DIR$/tests/asdf.py" />
         <option value="$PROJECT_DIR$/tests/accept_coins_test.py" />
         <option value="$PROJECT_DIR$/tests/testing_suite.py" />
-        <option value="$PROJECT_DIR$/src/vending_machine.py" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/src/vending_machine.py" />
       </list>
     </option>
   </component>
@@ -216,7 +217,7 @@
       <recent name="C:\Users\MrJ\Documents\Job Search\Pillar_resume\kata-vending-machine-master" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Unittests in testing_suite">
+  <component name="RunManager" selected="Python tests.Unittests in testing_suite (1)">
     <configuration default="false" name="Unittests in testing_suite" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -233,29 +234,6 @@
       <option name="METHOD_NAME" value="" />
       <option name="FOLDER_NAME" value="" />
       <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PUREUNITTEST" value="true" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Unittests in TestAcceptCoins" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="kata-vending-machine-master" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\MrJ\Documents\Job Search\Pillar_resume\kata-vending-machine-master_v1\tests\testing_suite.py" />
-      <option name="CLASS_NAME" value="TestAcceptCoins" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_CLASS" />
       <option name="PATTERN" value="" />
       <option name="USE_PATTERN" value="false" />
       <option name="PUREUNITTEST" value="true" />
@@ -325,6 +303,29 @@
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/asdf.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Unittests in testing_suite (1)" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="kata-vending-machine-master" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/testing_suite.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PUREUNITTEST" value="true" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="DjangoTestsConfigurationType" factoryName="Django tests">
@@ -518,16 +519,16 @@
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in testing_suite" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in TestAcceptCoins" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in TestAcceptCoins" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in sold_out_tests" />
-      <item index="4" class="java.lang.String" itemvalue="Python.asdf" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in sold_out_tests" />
+      <item index="3" class="java.lang.String" itemvalue="Python.asdf" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in testing_suite (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in testing_suite" />
-        <item index="1" class="java.lang.String" itemvalue="Python.asdf" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Unittests in sold_out_tests" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in TestAcceptCoins" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Unittests in testing_suite (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Unittests in testing_suite" />
+        <item index="2" class="java.lang.String" itemvalue="Python.asdf" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Unittests in sold_out_tests" />
         <item index="4" class="java.lang.String" itemvalue="Python tests.Unittests in TestAcceptCoins" />
       </list>
     </recent_temporary>
@@ -664,10 +665,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.137931">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/testing_suite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.724138">
-          <caret line="225" column="42" selection-start-line="225" selection-start-column="42" selection-end-line="225" selection-end-column="42" />
+        <state vertical-scroll-proportion="0.3323486">
+          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
           <folding>
             <element signature="e#29#44#0" expanded="true" />
           </folding>
@@ -676,21 +688,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/vending_machine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.448276">
-          <caret line="139" column="25" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="25" />
+        <state vertical-scroll-proportion="-0.9039882">
+          <caret line="102" column="14" selection-start-line="102" selection-start-column="14" selection-end-line="102" selection-end-column="14" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3935185">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
   </component>
