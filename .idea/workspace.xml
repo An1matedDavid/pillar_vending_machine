@@ -32,7 +32,7 @@
     <favorites_list name="kata-vending-machine-master" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.4138138">
+    <splitter split-orientation="horizontal" split-proportion="0.6024024">
       <split-first>
         <leaf>
           <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
@@ -60,8 +60,8 @@
           <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/README.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.42222223">
-                  <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+                <state vertical-scroll-proportion="0.33333334">
+                  <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
@@ -87,7 +87,7 @@
           <file leaf-file-name="vending_machine.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/vending_machine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.62352943">
+                <state vertical-scroll-proportion="0.35686275">
                   <caret line="107" column="30" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="30" />
                   <folding />
                 </state>
@@ -113,9 +113,9 @@
         <option value="$PROJECT_DIR$/tests/sold_out_tests.py" />
         <option value="$PROJECT_DIR$/tests/asdf.py" />
         <option value="$PROJECT_DIR$/tests/accept_coins_test.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/tests/testing_suite.py" />
         <option value="$PROJECT_DIR$/src/vending_machine.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -675,23 +675,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/vending_machine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.448276">
+          <caret line="141" column="25" selection-start-line="141" selection-start-column="8" selection-end-line="141" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42222223">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/vending_machine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62352943">
-          <caret line="107" column="30" selection-start-line="107" selection-start-column="17" selection-end-line="107" selection-end-column="30" />
-          <folding />
-        </state>
       </provider>
     </entry>
   </component>
