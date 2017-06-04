@@ -2,7 +2,7 @@ Deliverable:
 ------------
 - run test suite: tests/testing_suite
 - source code: src/vending_machine
-
+##test
 
 Notes:
 ------
